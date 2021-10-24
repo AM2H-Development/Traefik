@@ -27,6 +27,9 @@ services:
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.tls.certresolver=myresolver"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=mh:$$apr1$$lhkpo2by$$HLxKuazUduO73EmHExZgs/"
+
     ports:
       - "80:80"
       - "443:443"
