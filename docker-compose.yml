@@ -7,6 +7,12 @@ networks:
 services:
   traefik:
     image: "traefik:v2.5"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+    restart: unless-stopped    
     container_name: "traefik"
     command:
       #- "--log.level=DEBUG"
