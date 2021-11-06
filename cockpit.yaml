@@ -1,0 +1,16 @@
+http:
+  # Add the router
+  routers:
+    router0:
+      entryPoints:
+      - websecure
+      service: cockpit
+      rule: Host(`cockpit.qxf.de`)
+
+  # Add the service
+  services:
+    cockpit:
+      loadBalancer:
+        servers:
+        - url: http://localhost:9090/
+        passHostHeader: false
