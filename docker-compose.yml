@@ -46,5 +46,22 @@ services:
       - "traefik_data:/letsencrypt"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
+  whoami:
+    image: "traefik/whoami"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+    restart: unless-stopped    
+    container_name: "cockpit"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cockpit.rule=Host(`cockpit.qxf.de`)"
+      - "traefik.http.routers.cockpit.entrypoints=websecure"
+      - "traefik.http.routers.cockpit.tls.certresolver=myresolver"
+    networks:
+      - net
+
 volumes:
   traefik_data:
