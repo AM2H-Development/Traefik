@@ -27,6 +27,7 @@ services:
       - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
       - "--certificatesresolvers.myresolver.acme.email=mh@qxf.de"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--providers.file.filename=cockpit.toml"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.rule=Host(`traefik.qxf.de`)"
@@ -44,24 +45,8 @@ services:
       - net
     volumes:
       - "traefik_data:/letsencrypt"
+      - "~/Traefik:/etc/traefik"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
-
-  whoami:
-    image: "traefik/whoami"
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200k"
-        max-file: "10"
-    restart: unless-stopped    
-    container_name: "cockpit"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.cockpit.rule=Host(`cockpit.qxf.de`)"
-      - "traefik.http.routers.cockpit.entrypoints=websecure"
-      - "traefik.http.routers.cockpit.tls.certresolver=myresolver"
-    networks:
-      - net
 
 volumes:
   traefik_data:
