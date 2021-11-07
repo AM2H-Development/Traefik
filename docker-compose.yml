@@ -27,7 +27,7 @@ services:
       - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
       - "--certificatesresolvers.myresolver.acme.email=mh@qxf.de"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
-      #- "--providers.file.filename=/etc/traefik/cockpit.yaml"
+      - "--providers.file.directory=/etc/traefik/"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.rule=Host(`traefik.qxf.de`)"
