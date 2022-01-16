@@ -1,0 +1,17 @@
+http:
+  # Add the router
+  routers:
+    cockpitrouter:
+      entryPoints:
+      - websecure
+      #- web
+      service: cockpit
+      rule: Host(`cockpit.qxf.de`)
+
+  # Add the service
+  services:
+    cockpit:
+      loadBalancer:
+        servers:
+        - url: http://server-mh.fritz.box:9090/
+  #      passHostHeader: false
