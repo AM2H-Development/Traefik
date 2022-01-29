@@ -36,7 +36,7 @@ services:
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
       - "traefik.http.routers.traefik.middlewares=auth"
       - "traefik.http.middlewares.auth.basicauth.users=mh:$$apr1$$lhkpo2by$$HLxKuazUduO73EmHExZgs/"
-      - "traefik.http.routers.traefik.tls.options=tlsv13only
+      - "traefik.http.routers.traefik.tls.options=tlsv13only"
 
     ports:
       - "80:80"
