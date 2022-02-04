@@ -26,3 +26,7 @@ certificatesResolvers:
       storage: "/letsencrypt/acme.json"
       httpChallenge:
         entryPoint: web
+tls:
+  options:
+    default:
+      minVersion: VersionTLS13
