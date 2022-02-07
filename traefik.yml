@@ -22,7 +22,6 @@ providers:
 certificatesResolvers:
   myresolver:
     acme:
-      email: "mh@qxf.de"
       storage: "/letsencrypt/acme.json"
       httpChallenge:
         entryPoint: web

@@ -16,12 +16,12 @@ services:
     container_name: "traefik"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.qxf.de`)"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.${HOST}`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.tls.certresolver=myresolver"
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
       - "traefik.http.routers.traefik.middlewares=auth"
-      - "traefik.http.middlewares.auth.basicauth.users=mh:$$apr1$$lhkpo2by$$HLxKuazUduO73EmHExZgs/"
+      - "traefik.http.middlewares.auth.basicauth.users=${AUTH}"
     ports:
       - "80:80"
       - "443:443"
