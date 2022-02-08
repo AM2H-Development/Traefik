@@ -22,6 +22,11 @@ services:
       - "traefik.http.services.traefik.loadbalancer.server.port=8080"
       - "traefik.http.routers.traefik.middlewares=auth"
       - "traefik.http.middlewares.auth.basicauth.users=${AUTH}"
+      - "traefik.http.middlewares.traefiksts.headers.stsincludesubdomains=false"
+      - "traefik.http.middlewares.traefiksts.headers.stspreload=true"
+      - "traefik.http.middlewares.traefiksts.headers.stsseconds=31536000"
+      - "traefik.http.middlewares.traefiksts.headers.isdevelopment=false"
+      - "traefik.http.routers.traefik.middlewares=traefiksts"
     ports:
       - "80:80"
       - "443:443"
