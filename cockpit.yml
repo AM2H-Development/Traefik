@@ -1,0 +1,14 @@
+http:
+  routers:
+    cockpit:
+      entryPoints:
+        - "websecure"
+      rule: "Host(`cockpit.qxf.de`)"
+      service: "cockpit"
+      tls:
+        certresolver: myresolver
+  services:
+    cockpit:
+      loadBalancer:
+        servers:
+         - url: "http://server-mh.fritz.box:9090"
