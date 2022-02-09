@@ -28,7 +28,8 @@ services:
       - "traefik.http.middlewares.traefiksts.headers.stspreload=true"
       - "traefik.http.middlewares.traefiksts.headers.stsseconds=31536000"
       - "traefik.http.middlewares.traefiksts.headers.isdevelopment=false"
-      - "traefik.http.routers.traefik.middlewares=traefiksts"
+      - "traefik.http.middlewares.secured.chain.middlewares=traefiksts,auth"
+      - "traefik.http.routers.traefik.middlewares=secured"
     ports:
       - "80:80"
       - "443:443"
