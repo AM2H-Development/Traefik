@@ -7,6 +7,8 @@ networks:
 services:
   traefik:
     image: "traefik:v2.5"
+    command:
+      - "--providers.docker.exposedbydefault=false"
     logging:
       driver: "json-file"
       options:

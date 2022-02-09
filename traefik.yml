@@ -14,8 +14,8 @@ api:
   insecure: true
 
 providers:
-  docker:
-    exposedByDefault:false
+  docker: {}
+#    exposedByDefault:true
   file:
     directory: /etc/traefik
     watch: true
