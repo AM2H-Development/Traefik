@@ -6,7 +6,7 @@ networks:
 
 services:
   traefik:
-    image: "traefik:v2.9"
+    image: "traefik:v2.10"
     command:
       - "--providers.docker.exposedbydefault=false"
     logging:
