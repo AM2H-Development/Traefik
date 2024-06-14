@@ -1,3 +1,5 @@
+name: traefik
+
 networks:
   net:
     driver: bridge
