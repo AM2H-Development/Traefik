@@ -8,4 +8,4 @@ touch .env (fill with your personal data, see sample.env in git)
 
 cd Traefik
 
-docker-compose --env-file ../.env up -d
+docker compose --env-file ../.env up -d
