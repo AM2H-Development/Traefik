@@ -1,11 +1,15 @@
 # Traefik
 
-Install / upgrade Traefik Docker image on local server
+## install:
+* git clone https://github.com/AM2H-Development/Traefik.git
+* cd Traefik
+* cp sample.env .env
+* nano .env # adopt Hostname
+* docker compose up -d
 
-git clone https://github.com/AM2H-Development/Traefik.git
+## data:
+all Traefik Letsencrypt Certs are stored in volume "traefik_data", config files are read in ./
 
-touch .env (fill with your personal data, see sample.env in git)
-
-cd Traefik
-
-docker compose --env-file ../.env up -d
+## use:
+* config files in ./
+* or Docker labels
