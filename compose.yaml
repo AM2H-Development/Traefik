@@ -1,4 +1,4 @@
-name: traefik
+name: ${PROJECT}
 
 networks:
   net:
@@ -7,6 +7,7 @@ networks:
 services:
   traefik:
     image: "traefik:v2.10"
+    env_file: .env
     command:
       - "--providers.docker.exposedbydefault=false"
     logging:
